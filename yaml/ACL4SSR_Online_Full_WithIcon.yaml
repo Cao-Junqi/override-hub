@@ -3,8 +3,10 @@ dns:
   listen: 127.0.0.1:1053
   ipv6: true
   default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
+    # - 223.5.5.5
+    # - 119.29.29.29
+    - 120.53.53.198
+    - 120.53.53.125
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -19,8 +21,10 @@ dns:
     - 'time1.cloud.tencent.com'
     - '*.vzan.com'
   nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
+    # - 223.5.5.5
+    # - 119.29.29.29
+    - 120.53.53.198
+    - 120.53.53.125
     - https://dns.alidns.com/dns-query
     - https://i.233py.com/dns-query
     - https://doh.pub/dns-query
@@ -51,6 +55,8 @@ proxy-groups:
   - name: 节点选择
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
     type: select
+    interval: 180
+    tolerance: 50
     proxies:
       - 自动选择
       - 香港节点
@@ -69,7 +75,7 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
     type: url-test
     include-all: true
-    interval: 300
+    interval: 180
     tolerance: 50
   - name: 电报消息
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
@@ -277,9 +283,9 @@ proxy-groups:
     icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
     type: select
     proxies:
-      - 节点选择
-      - 自动选择
       - DIRECT
+      - 自动选择
+      - 节点选择
       - 香港节点
       - 台湾节点
       - 狮城节点
@@ -455,8 +461,8 @@ rule-providers:
     format: text
     type: http
   Ai服务:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
-    path: ./ruleset/OpenAi.list
+    url: https://github.com/Cao-Junqi/override-hub/raw/refs/heads/main/ruleset-ai.list
+    path: ./ruleset/ruleset-ai.list
     behavior: classical
     interval: 86400
     format: text
