@@ -620,5 +620,13 @@ rules:
   - "RULE-SET,ChinaCompanyIp,全球直连"
   - "RULE-SET,Download,全球直连"
   - "DOMAIN-KEYWORD,vzan,全球直连"
+  # GeoIP 精细分流
   - "GEOIP,CN,全球直连"
+  # - "GEOIP,HK,香港节点"
+  # - "GEOIP,MO,香港节点"
+  - "GEOIP,TW,台湾节点"
+  - "GEOIP,JP,日本节点"
+  - "GEOIP,US,美国节点"
+  - "GEOIP,SG,狮城节点"
+  - "GEOIP,KR,韩国节点"
   - "MATCH,漏网之鱼"
