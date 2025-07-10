@@ -1,122 +1,79 @@
-# Clash AI Services Ruleset（适用于中国大陆网络）
-# 包含所有需代理访问的主流 AI 平台及其登录、验证域名
-# 更新日期：2025-07-10
-# 建议绑定策略组：AI 或 Proxy-US
-
-# ==== OpenAI ====
-DOMAIN-SUFFIX,openai.com
-DOMAIN-SUFFIX,chat.openai.com
-DOMAIN-SUFFIX,platform.openai.com
-DOMAIN-SUFFIX,api.openai.com
-DOMAIN-SUFFIX,auth0.openai.com
-DOMAIN-SUFFIX,cdn.openai.com
-
-# ==== Anthropic (Claude) ====
+DOMAIN,api.statsig.com
+DOMAIN,browser-intake-datadoghq.com
+DOMAIN,static.cloudflareinsights.com
+DOMAIN-SUFFIX,algolia.net
+DOMAIN-SUFFIX,auth0.com
+DOMAIN-SUFFIX,cloudflare.com
+DOMAIN-SUFFIX,arkoselabs.com
+DOMAIN-SUFFIX,statsigapi.net
+DOMAIN-SUFFIX,featuregates.org
+DOMAIN-SUFFIX,identrust.com
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN-SUFFIX,launchdarkly.com
+DOMAIN-SUFFIX,segment.io
+DOMAIN-SUFFIX,amazonaws.com
+DOMAIN-SUFFIX,wp.com
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,stripe.com
+DOMAIN-SUFFIX,apple-relay.cloudflare.com
+DOMAIN-SUFFIX,apple-relay.apple.com
+DOMAIN,cdn.usefathom.com
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
-DOMAIN-SUFFIX,api.anthropic.com
-
-# ==== Google Gemini / Bard ====
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,cursor.sh
+DOMAIN-SUFFIX,dify.ai
+DOMAIN,ai.google.dev
+DOMAIN,makersuite.google.com
 DOMAIN-SUFFIX,gemini.google.com
-DOMAIN-SUFFIX,bard.google.com
-DOMAIN-SUFFIX,aistudio.google.com
-DOMAIN-SUFFIX,makersuite.google.com
-
-# ==== Microsoft Copilot / Azure OpenAI ====
-DOMAIN-SUFFIX,copilot.microsoft.com
-DOMAIN-SUFFIX,openai.azure.com
-DOMAIN-SUFFIX,api.cognitive.microsoft.com
-
-# ==== Perplexity AI ====
-DOMAIN-SUFFIX,perplexity.ai
-DOMAIN-SUFFIX,www.perplexity.ai
-
-# ==== Poe (Quora AI) ====
-DOMAIN-SUFFIX,poe.com
-DOMAIN-SUFFIX,quora.com
-DOMAIN-SUFFIX,quoracdn.net
-
-# ==== HuggingFace ====
-DOMAIN-SUFFIX,huggingface.co
-DOMAIN-SUFFIX,huggingface.dev
-
-# ==== Groq ====
-DOMAIN-SUFFIX,groq.com
-DOMAIN-SUFFIX,api.groq.com
-
-# ==== Mistral AI ====
-DOMAIN-SUFFIX,mistral.ai
-
-# ==== OpenRouter ====
-DOMAIN-SUFFIX,openrouter.ai
-
-# ==== Character.AI ====
-DOMAIN-SUFFIX,character.ai
-DOMAIN-SUFFIX,www.character.ai
-
-# ==== Moonshot AI (Kimi) ====
-DOMAIN-SUFFIX,moonshot.cn
-DOMAIN-SUFFIX,kimi.moonshot.cn
-DOMAIN-SUFFIX,api.moonshot.cn
-
-# ==== Replika ====
-DOMAIN-SUFFIX,replika.ai
-DOMAIN-SUFFIX,my.replika.com
-
-# ==== xAI / Grok ====
-DOMAIN-SUFFIX,x.ai
-DOMAIN-SUFFIX,grok.x.ai
-DOMAIN-SUFFIX,chat.x.ai
-
-# ==== Inflection AI / Pi ====
-DOMAIN-SUFFIX,inflection.ai
-DOMAIN-SUFFIX,heypi.com
-
-# ==== Rabbit AI ====
-DOMAIN-SUFFIX,rabbit.tech
-DOMAIN-SUFFIX,rabbithole.gg
-
-# ==== Suno AI ====
-DOMAIN-SUFFIX,suno.ai
-DOMAIN-SUFFIX,www.suno.ai
-
-# ==== Notion AI（AI 功能受地区限制） ====
-DOMAIN-SUFFIX,notion.so
-DOMAIN-SUFFIX,www.notion.so
-DOMAIN-SUFFIX,notion.site
-
-# ==== Jan.AI ====
-DOMAIN-SUFFIX,jan.ai
-
-# ==== Cohere ====
-DOMAIN-SUFFIX,cohere.ai
-
-# ==== Reka.AI ====
-DOMAIN-SUFFIX,reka.ai
-
-# ==== Runway ML（AI 视频生成） ====
-DOMAIN-SUFFIX,runwayml.com
-
-# ==== Pika Labs（AI 视频生成） ====
-DOMAIN-SUFFIX,pika.art
-DOMAIN-SUFFIX,pika.show
-
-# ==== Luma AI（3D 生成） ====
-DOMAIN-SUFFIX,luma.ai
-
-# ==== Stability AI（Stable Diffusion） ====
-DOMAIN-SUFFIX,stability.ai
-DOMAIN-SUFFIX,clipdrop.co
-
-# ==== Midjourney ====
+DOMAIN-SUFFIX,apis.google.com
+DOMAIN-SUFFIX,clients6.google.com
+DOMAIN-SUFFIX,clients4.google.com
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,deepmind.google
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,colab.google.com
+DOMAIN-SUFFIX,colab.research.google.com
+DOMAIN-SUFFIX,developerprofiles.google.com
+DOMAIN-SUFFIX,googleusercontent.com
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+DOMAIN-SUFFIX,grazie.ai
+DOMAIN-SUFFIX,meta.ai
+DOMAIN-SUFFIX,meta.com
+DOMAIN,api.msn.com
+DOMAIN,assets.msn.com
+DOMAIN,copilot.microsoft.com
+DOMAIN,gateway.bingviz.microsoft.net
+DOMAIN,gateway.bingviz.microsoftapp.net
+DOMAIN,in.appcenter.ms
+DOMAIN,location.microsoft.com
+DOMAIN,odc.officeapps.live.com
+DOMAIN,r.bing.com
+DOMAIN,self.events.data.microsoft.com
+DOMAIN,services.bingapis.com
+DOMAIN,sydney.bing.com
+DOMAIN,www.bing.com
+DOMAIN-SUFFIX,api.microsoftapp.net
+DOMAIN-SUFFIX,bing-shopping.microsoft-falcon.io
+DOMAIN-SUFFIX,edgeservices.bing.com
 DOMAIN-SUFFIX,midjourney.com
-
-# ==== Leonardo AI ====
-DOMAIN-SUFFIX,leonardo.ai
-
-# ==== Ideogram AI（AI 图像生成） ====
-DOMAIN-SUFFIX,ideogram.ai
-
-# ==== AgentHub / AnyGPT ====
-DOMAIN-SUFFIX,agenthub.dev
-DOMAIN-SUFFIX,anygpt.ai
+DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
+DOMAIN,openaicomproductionae4b.blob.core.windows.net
+DOMAIN,production-openaicom-storage.azureedge.net
+DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,livekit.cloud
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,azureedge.net
+DOMAIN-SUFFIX,imgix.net
+DOMAIN,pplx-res.cloudinary.com
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,pplx.ai
+DOMAIN-SUFFIX,perplexity.com
+DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,poecdn.net
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,grok.com
