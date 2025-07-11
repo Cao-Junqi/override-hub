@@ -624,7 +624,7 @@ rules:
   - "GEOIP,CN,全球直连"
   # - "GEOIP,HK,香港节点"
   # - "GEOIP,MO,香港节点"
-  - "GEOIP,TW,台湾节点"
+  # - "GEOIP,TW,台湾节点"
   - "GEOIP,JP,日本节点"
   - "GEOIP,US,美国节点"
   - "GEOIP,SG,狮城节点"
