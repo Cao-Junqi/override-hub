@@ -617,7 +617,7 @@ rules:
   - "RULE-SET,Download,全球直连"
   - "DOMAIN-KEYWORD,vzan,全球直连"
   - "DOMAIN,testingcf.jsdelivr.net,全球直连"
-  - "DOMAIN,github.com,全球直连"
+  #- "DOMAIN,github.com,全球直连"
   # GeoIP 精细分流
   - "GEOIP,CN,全球直连"
   # - "GEOIP,HK,香港节点"
