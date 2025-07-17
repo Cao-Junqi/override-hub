@@ -4,9 +4,9 @@ dns:
   ipv6: true
   default-nameserver:
     - 223.5.5.5
-    - 119.29.29.29
-    - 120.53.53.198
-    - 180.76.76.76
+    # - 119.29.29.29
+    # - 120.53.53.198
+    # - 180.76.76.76
     - 180.184.1.1
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -23,9 +23,9 @@ dns:
     - '*.vzan.com'
   nameserver:
     - 223.5.5.5
-    - 119.29.29.29
-    - 120.53.53.198
-    - 180.76.76.76
+    # - 119.29.29.29
+    # - 120.53.53.198
+    # - 180.76.76.76
     - 180.184.1.1
     - https://dns.alidns.com/dns-query
     - https://i.233py.com/dns-query
@@ -36,6 +36,11 @@ dns:
     - https://doh.mullvad.net/dns-query
     - https://dns-unfiltered.adguard.com/dns-query
   fallback:
+    - 223.5.5.5
+    # - 119.29.29.29
+    # - 120.53.53.198
+    # - 180.76.76.76
+    - 180.184.1.1
     - https://doh.dns.sb/dns-query
     - https://dns.twnic.tw/dns-query
     - https://doh.opendns.com/dns-query
