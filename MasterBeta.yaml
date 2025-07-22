@@ -4,6 +4,8 @@ dns:
   ipv6: true
   default-nameserver:
     - 223.5.5.5
+    - 1.1.1.1
+    - 8.8.8.8
     - 119.29.29.29
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -20,6 +22,8 @@ dns:
     - '*.vzan.com'
   nameserver:
     - 223.5.5.5
+    - 1.1.1.1
+    - 8.8.8.8
     - 119.29.29.29
     - https://dns.alidns.com/dns-query
     - https://i.233py.com/dns-query
@@ -31,6 +35,8 @@ dns:
     - https://dns-unfiltered.adguard.com/dns-query
   fallback:
     - 223.5.5.5
+    - 1.1.1.1
+    - 8.8.8.8
     - 119.29.29.29
     - https://doh.dns.sb/dns-query
     - https://dns.twnic.tw/dns-query
@@ -324,7 +330,6 @@ proxy-groups:
       - 油管视频
       - 奈飞视频
       - 巴哈姆特
-      - 哔哩哔哩
       - 国外媒体
       - 国内媒体
       - 谷歌FCM
@@ -515,9 +520,6 @@ rule-providers:
 
 rules:
   - "RULE-SET,LocalAreaNetwork,全球直连"
-  - "RULE-SET,UnBan,全球直连"
-  - "RULE-SET,BanAD,广告拦截"
-  - "RULE-SET,BanProgramAD,应用净化"
   - "RULE-SET,GoogleFCM,谷歌FCM"
   - "RULE-SET,GoogleCN,全球直连"
   - "RULE-SET,SteamCN,全球直连"
