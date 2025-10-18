@@ -4,9 +4,8 @@ dns:
   ipv6: true
   default-nameserver:
     - 223.5.5.5
-    - 1.1.1.1
-    - 8.8.8.8
     - 119.29.29.29
+    - 1.1.1.1
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -14,46 +13,92 @@ dns:
     - '*.local'
     - '*.localhost'
     - '*.test'
+    - '*.example'
+    - '*.invalid'
+    - '*.localdomain'
+    - '*.home.arpa'
+    - 'localhost.ptlogin2.qq.com'
+    - 'localhost.sec.qq.com'
+    - '+.srv.nintendo.net'
+    - '+.stun.playstation.net'
+    - 'xbox.*.microsoft.com'
+    - 'xnotify.xboxlive.com'
+    - '+.battlenet.com.cn'
+    - '+.wotgame.cn'
+    - '+.wggames.cn'
+    - '+.wowsgame.cn'
+    - '+.wargaming.net'
+    - 'proxy.golang.org'
+    - 'stun.*.*'
+    - 'stun.*.*.*'
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - 'heartbeat.belkin.com'
+    - '*.linksys.com'
+    - '*.linksyssmartwifi.com'
+    - '*.router.asus.com'
+    - 'mesu.apple.com'
+    - 'swscan.apple.com'
+    - '*.msftconnecttest.com'
+    - '*.msftncsi.com'
     - 'ntp.*.com'
     - 'time.*.com'
+    - 'time.*.gov'
+    - 'time.*.edu.cn'
+    - '*.time.edu.cn'
     - '*.ntp.org.cn'
     - '+.pool.ntp.org'
     - 'time1.cloud.tencent.com'
     - '*.vzan.com'
+    - '+.music.163.com'
+    - '*.126.net'
+    - 'musicapi.taihe.com'
+    - 'music.taihe.com'
+    - 'songsearch.kugou.com'
+    - 'trackercdn.kugou.com'
+    - '*.kuwo.cn'
+    - 'api-jooxtt.sanook.com'
+    - 'api.joox.com'
+    - 'joox.com'
+    - '+.y.qq.com'
+    - '+.music.tc.qq.com'
+    - 'aqqmusic.tc.qq.com'
+    - '+.stream.qqmusic.qq.com'
   nameserver:
     - 223.5.5.5
-    - 1.1.1.1
-    - 8.8.8.8
     - 119.29.29.29
-    - https://dns.alidns.com/dns-query
-    - https://i.233py.com/dns-query
     - https://doh.pub/dns-query
-    - https://dns.pub/dns-query
-    - https://dns.cfiec.net/dns-query
-    - https://dns.rubyfish.cn/dns-query
-    - https://doh.mullvad.net/dns-query
-    - https://dns-unfiltered.adguard.com/dns-query
+    - https://dns.alidns.com/dns-query
+  nameserver-policy:
+    'geosite:cn':
+      - 223.5.5.5
+      - 119.29.29.29
+      - https://doh.pub/dns-query
+    'geosite:geolocation-!cn':
+      - https://dns.google/dns-query
+      - https://cloudflare-dns.com/dns-query
   fallback:
-    - 223.5.5.5
-    - 1.1.1.1
-    - 8.8.8.8
-    - 119.29.29.29
-    - https://doh.dns.sb/dns-query
-    - https://dns.twnic.tw/dns-query
-    - https://doh.opendns.com/dns-query
-    - https://dns.233py.com/dns-query
-    - https://public.dns.iij.jp/dns-query
-    - https://doh.mullvad.net/dns-query
     - https://dns.google/dns-query
-    - https://dns.rubyfish.cn/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.quad9.net/dns-query
   fallback-filter:
     geoip: true
+    geoip-code: CN
     ipcidr:
       - 0.0.0.0/32
       - 100.64.0.0/10
       - 127.0.0.0/8
+      - 169.254.0.0/16
+      - 224.0.0.0/4
       - 240.0.0.0/4
       - 255.255.255.255/32
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
+      - '+.twitter.com'
+      - '+.github.com'
 
 proxy-groups:
   - name: 节点选择
@@ -519,9 +564,116 @@ rule-providers:
     type: http
 
 rules:
+  # 本地网络和特殊规则
   - "RULE-SET,LocalAreaNetwork,全球直连"
+  - "DOMAIN-KEYWORD,vzan,全球直连"
+  - "DOMAIN,testingcf.jsdelivr.net,全球直连"
+  
+  # 国外服务 - 社交媒体
+  - "DOMAIN-SUFFIX,facebook.com,节点选择"
+  - "DOMAIN-SUFFIX,fbcdn.net,节点选择"
+  - "DOMAIN-SUFFIX,instagram.com,节点选择"
+  - "DOMAIN-SUFFIX,cdninstagram.com,节点选择"
+  - "DOMAIN-SUFFIX,whatsapp.com,节点选择"
+  - "DOMAIN-SUFFIX,whatsapp.net,节点选择"
+  - "DOMAIN-SUFFIX,twitter.com,节点选择"
+  - "DOMAIN-SUFFIX,x.com,节点选择"
+  - "DOMAIN-SUFFIX,twimg.com,节点选择"
+  - "DOMAIN-SUFFIX,t.co,节点选择"
+  - "DOMAIN-SUFFIX,reddit.com,节点选择"
+  - "DOMAIN-SUFFIX,redd.it,节点选择"
+  - "DOMAIN-SUFFIX,redditstatic.com,节点选择"
+  - "DOMAIN-SUFFIX,pinterest.com,节点选择"
+  - "DOMAIN-SUFFIX,pinimg.com,节点选择"
+  - "DOMAIN-SUFFIX,tumblr.com,节点选择"
+  - "DOMAIN-SUFFIX,linkedin.com,节点选择"
+  - "DOMAIN-SUFFIX,licdn.com,节点选择"
+  - "DOMAIN-SUFFIX,snapchat.com,节点选择"
+  - "DOMAIN-SUFFIX,tiktok.com,节点选择"
+  - "DOMAIN-SUFFIX,tiktokcdn.com,节点选择"
+  - "DOMAIN-SUFFIX,musical.ly,节点选择"
+  
+  # 国外服务 - 开发工具
+  - "DOMAIN-SUFFIX,github.com,节点选择"
+  - "DOMAIN-SUFFIX,githubusercontent.com,节点选择"
+  - "DOMAIN-SUFFIX,github.io,节点选择"
+  - "DOMAIN-SUFFIX,githubassets.com,节点选择"
+  - "DOMAIN-SUFFIX,gitlab.com,节点选择"
+  - "DOMAIN-SUFFIX,stackoverflow.com,节点选择"
+  - "DOMAIN-SUFFIX,stackexchange.com,节点选择"
+  - "DOMAIN-SUFFIX,sstatic.net,节点选择"
+  - "DOMAIN-SUFFIX,npmjs.com,节点选择"
+  - "DOMAIN-SUFFIX,npmjs.org,节点选择"
+  - "DOMAIN-SUFFIX,pypi.org,节点选择"
+  - "DOMAIN-SUFFIX,docker.com,节点选择"
+  - "DOMAIN-SUFFIX,docker.io,节点选择"
+  
+  # 国外服务 - Google 系列
+  - "DOMAIN-SUFFIX,google.com,节点选择"
+  - "DOMAIN-SUFFIX,google.com.hk,节点选择"
+  - "DOMAIN-SUFFIX,googleapis.com,节点选择"
+  - "DOMAIN-SUFFIX,googleusercontent.com,节点选择"
+  - "DOMAIN-SUFFIX,gstatic.com,节点选择"
+  - "DOMAIN-SUFFIX,gmail.com,节点选择"
+  - "DOMAIN-SUFFIX,googlevideo.com,节点选择"
+  - "DOMAIN-SUFFIX,googletagmanager.com,节点选择"
+  - "DOMAIN-SUFFIX,googleadservices.com,节点选择"
+  - "DOMAIN-SUFFIX,googlesyndication.com,节点选择"
+  - "DOMAIN-SUFFIX,recaptcha.net,节点选择"
+  - "DOMAIN-SUFFIX,gvt1.com,节点选择"
+  - "DOMAIN-SUFFIX,gvt2.com,节点选择"
+  - "DOMAIN-SUFFIX,gvt3.com,节点选择"
+  - "DOMAIN-SUFFIX,android.com,节点选择"
+  - "DOMAIN-SUFFIX,ampproject.org,节点选择"
   - "RULE-SET,GoogleFCM,谷歌FCM"
   - "RULE-SET,GoogleCN,全球直连"
+  
+  # 国外服务 - 新闻媒体
+  - "DOMAIN-SUFFIX,bbc.com,节点选择"
+  - "DOMAIN-SUFFIX,bbc.co.uk,节点选择"
+  - "DOMAIN-SUFFIX,bbci.co.uk,节点选择"
+  - "DOMAIN-SUFFIX,nytimes.com,节点选择"
+  - "DOMAIN-SUFFIX,nyt.com,节点选择"
+  - "DOMAIN-SUFFIX,wsj.com,节点选择"
+  - "DOMAIN-SUFFIX,reuters.com,节点选择"
+  - "DOMAIN-SUFFIX,bloomberg.com,节点选择"
+  - "DOMAIN-SUFFIX,theguardian.com,节点选择"
+  - "DOMAIN-SUFFIX,cnn.com,节点选择"
+  - "DOMAIN-SUFFIX,medium.com,节点选择"
+  
+  # 国外服务 - 云存储
+  - "DOMAIN-SUFFIX,dropbox.com,节点选择"
+  - "DOMAIN-SUFFIX,dropboxusercontent.com,节点选择"
+  - "DOMAIN-SUFFIX,box.com,节点选择"
+  - "DOMAIN-SUFFIX,boxcdn.net,节点选择"
+  - "DOMAIN-SUFFIX,mega.nz,节点选择"
+  - "DOMAIN-SUFFIX,mediafire.com,节点选择"
+  
+  # 国外服务 - 其他常用
+  - "DOMAIN-SUFFIX,wikipedia.org,节点选择"
+  - "DOMAIN-SUFFIX,wikimedia.org,节点选择"
+  - "DOMAIN-SUFFIX,cloudflare.com,节点选择"
+  - "DOMAIN-SUFFIX,cloudflareinsights.com,节点选择"
+  - "DOMAIN-SUFFIX,cloudfront.net,节点选择"
+  - "DOMAIN-SUFFIX,amazonaws.com,节点选择"
+  - "DOMAIN-SUFFIX,aws.amazon.com,节点选择"
+  - "DOMAIN-SUFFIX,zoom.us,节点选择"
+  - "DOMAIN-SUFFIX,slack.com,节点选择"
+  - "DOMAIN-SUFFIX,slack-edge.com,节点选择"
+  - "DOMAIN-SUFFIX,discord.com,节点选择"
+  - "DOMAIN-SUFFIX,discordapp.com,节点选择"
+  - "DOMAIN-SUFFIX,discordapp.net,节点选择"
+  - "DOMAIN-SUFFIX,twitch.tv,节点选择"
+  - "DOMAIN-SUFFIX,twitchcdn.net,节点选择"
+  - "DOMAIN-SUFFIX,spotify.com,节点选择"
+  - "DOMAIN-SUFFIX,scdn.co,节点选择"
+  - "DOMAIN-SUFFIX,vimeo.com,节点选择"
+  - "DOMAIN-SUFFIX,vimeocdn.com,节点选择"
+  - "DOMAIN-SUFFIX,imgur.com,节点选择"
+  - "DOMAIN-SUFFIX,pixiv.net,节点选择"
+  - "DOMAIN-SUFFIX,pximg.net,节点选择"
+  
+  # 专用规则集
   - "RULE-SET,SteamCN,全球直连"
   - "RULE-SET,Bing,微软Bing"
   - "RULE-SET,OneDrive,微软云盘"
@@ -540,10 +692,43 @@ rules:
   - "RULE-SET,ChinaMedia,国内媒体"
   - "RULE-SET,ProxyMedia,国外媒体"
   - "RULE-SET,ProxyGFWlist,节点选择"
+  
+  # 国内直连规则
+  - "DOMAIN-SUFFIX,cn,全球直连"
+  - "DOMAIN-KEYWORD,baidu,全球直连"
+  - "DOMAIN-KEYWORD,taobao,全球直连"
+  - "DOMAIN-KEYWORD,alipay,全球直连"
+  - "DOMAIN-KEYWORD,alicdn,全球直连"
+  - "DOMAIN-KEYWORD,aliyun,全球直连"
+  - "DOMAIN-KEYWORD,tmall,全球直连"
+  - "DOMAIN-KEYWORD,jd,全球直连"
+  - "DOMAIN-KEYWORD,qq,全球直连"
+  - "DOMAIN-KEYWORD,tencent,全球直连"
+  - "DOMAIN-KEYWORD,weixin,全球直连"
+  - "DOMAIN-KEYWORD,wechat,全球直连"
+  - "DOMAIN-KEYWORD,bilibili,全球直连"
+  - "DOMAIN-KEYWORD,douyin,全球直连"
+  - "DOMAIN-KEYWORD,163,全球直连"
+  - "DOMAIN-KEYWORD,126,全球直连"
+  - "DOMAIN-KEYWORD,sina,全球直连"
+  - "DOMAIN-KEYWORD,sohu,全球直连"
+  - "DOMAIN-KEYWORD,youku,全球直连"
+  - "DOMAIN-KEYWORD,iqiyi,全球直连"
   - "RULE-SET,ChinaDomain,全球直连"
   - "RULE-SET,ChinaCompanyIp,全球直连"
   - "RULE-SET,Download,全球直连"
-  - "DOMAIN-KEYWORD,vzan,全球直连"
-  - "DOMAIN,testingcf.jsdelivr.net,全球直连"
+  
+  # IP 规则
+  - "IP-CIDR,192.168.0.0/16,全球直连,no-resolve"
+  - "IP-CIDR,10.0.0.0/8,全球直连,no-resolve"
+  - "IP-CIDR,172.16.0.0/12,全球直连,no-resolve"
+  - "IP-CIDR,127.0.0.0/8,全球直连,no-resolve"
+  - "IP-CIDR,100.64.0.0/10,全球直连,no-resolve"
+  - "IP-CIDR,224.0.0.0/4,全球直连,no-resolve"
+  - "IP-CIDR,fe80::/10,全球直连,no-resolve"
+  - "IP-CIDR,119.29.29.29/32,全球直连,no-resolve"
+  - "IP-CIDR,223.5.5.5/32,全球直连,no-resolve"
   - "GEOIP,CN,全球直连"
-  - "MATCH,漏网之鱼"
+  
+  # 兜底规则
+  - "MATCH,节点选择"
