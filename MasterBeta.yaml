@@ -458,7 +458,7 @@ rule-providers:
     format: text
     type: http
   Ai服务:
-    url: https://github.com/Cao-Junqi/override-hub/raw/refs/heads/main/ruleset-ai.list
+    url: https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/Ruleset/AiDomain.list
     path: ./ruleset/ruleset-ai.list
     behavior: classical
     interval: 86400
