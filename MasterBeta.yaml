@@ -81,10 +81,16 @@ dns:
     'geosite:geolocation-!cn':
       - https://dns.google/dns-query
       - https://cloudflare-dns.com/dns-query
+      - 223.5.5.5
+      - 8.8.8.8
+      - 1.1.1.1
   fallback:
     - https://dns.google/dns-query
     - https://cloudflare-dns.com/dns-query
     - https://dns.quad9.net/dns-query
+    - 8.8.8.8
+    - 1.1.1.1
+    - 223.5.5.5
   fallback-filter:
     geoip: true
     geoip-code: CN
