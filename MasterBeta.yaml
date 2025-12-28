@@ -573,21 +573,55 @@ rule-providers:
     type: http
 
 rules:
-  # 1. 强制 Gemini/AI 相关域名走 Ai服务 策略组 (必须放在 google.com 规则之前)
-  - DOMAIN,gemini.google.com,Ai服务
-  - DOMAIN,bard.google.com,Ai服务
-  - DOMAIN,aistudio.google.com,Ai服务
-  - DOMAIN,alkalimakersuite-pa.clients6.google.com,Ai服务
-  - DOMAIN,proactivebackend-pa.googleapis.com,Ai服务
-  - DOMAIN,generativelanguage.googleapis.com,Ai服务
-  - DOMAIN,geller-pa.googleapis.com,Ai服务
-  - DOMAIN,makertrain-pa.googleapis.com,Ai服务
-  
-  # 2. 如果你同时使用 Claude 或 OpenAI，建议也前置 (可选)
-  - DOMAIN-SUFFIX,anthropic.com,Ai服务
-  - DOMAIN-SUFFIX,claude.ai,Ai服务
-  - DOMAIN-SUFFIX,openai.com,Ai服务
+  # ----------------------------------------------------------------------
+  # [第二部分] 热门 AI 服务商全覆盖 (扩展部分)
+  # ----------------------------------------------------------------------
+  # OpenAI (ChatGPT)
   - DOMAIN-SUFFIX,chatgpt.com,Ai服务
+  - DOMAIN-SUFFIX,openai.com,Ai服务
+  - DOMAIN-SUFFIX,oaistatic.com,Ai服务
+  - DOMAIN-SUFFIX,oaiusercontent.com,Ai服务
+  - DOMAIN-KEYWORD,openai,Ai服务
+  
+  # Anthropic (Claude) - 目前最强竞争者
+  - DOMAIN-SUFFIX,claude.ai,Ai服务
+  - DOMAIN-SUFFIX,anthropic.com,Ai服务
+  
+  # Perplexity / Grok (xAI) / Microsoft Copilot 依赖
+  - DOMAIN-SUFFIX,perplexity.ai,Ai服务
+  - DOMAIN-SUFFIX,grok.com,Ai服务
+  - DOMAIN-SUFFIX,x.ai,Ai服务
+  - DOMAIN-SUFFIX,bing.com,Ai服务    # Copilot 需要 Bing 走代理(可选)
+
+  # ----------------------------------------------------------------------
+  # [第三部分] Google Gemini 深度修复 (环境统一)
+  # ----------------------------------------------------------------------
+  # 1. AI 核心域名
+  - DOMAIN-SUFFIX,gemini.google.com,Ai服务
+  - DOMAIN-SUFFIX,bard.google.com,Ai服务
+  - DOMAIN-SUFFIX,aistudio.google.com,Ai服务
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,Ai服务
+  - DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,Ai服务
+
+  # 2. 必须接管的 Google 基础设施 (解决日志报错的关键)
+  # 你的日志里 lh3.googleusercontent.com 走了香港，这是大忌
+  - DOMAIN-SUFFIX,googleusercontent.com,Ai服务 
+  
+  # 账号与API，必须与 AI 节点同区
+  - DOMAIN-SUFFIX,accounts.google.com,Ai服务
+  - DOMAIN-SUFFIX,googleapis.com,Ai服务
+  - DOMAIN-SUFFIX,googletagmanager.com,Ai服务
+  - DOMAIN-SUFFIX,gvt1.com,Ai服务
+  
+  # 后台信令 (Log 中频繁出现的 clients6)
+  - DOMAIN-SUFFIX,clients6.google.com,Ai服务
+  - DOMAIN-SUFFIX,clients4.google.com,Ai服务
+  
+  # [核弹级大招] 强制 Google 主搜索走 AI 节点
+  # 注意：这会让你的 Google 搜索变成美区结果，但能彻底治好 Gemini 的区域问题
+  # - DOMAIN-SUFFIX,www.google.com,Ai服务
+  # - DOMAIN-SUFFIX,google.com,Ai服务
+  
   # 本地网络和特殊规则
   - "RULE-SET,LocalAreaNetwork,全球直连"
   - "DOMAIN-KEYWORD,vzan,全球直连"
