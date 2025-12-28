@@ -573,6 +573,21 @@ rule-providers:
     type: http
 
 rules:
+  # 1. 强制 Gemini/AI 相关域名走 Ai服务 策略组 (必须放在 google.com 规则之前)
+  - DOMAIN,gemini.google.com,Ai服务
+  - DOMAIN,bard.google.com,Ai服务
+  - DOMAIN,aistudio.google.com,Ai服务
+  - DOMAIN,alkalimakersuite-pa.clients6.google.com,Ai服务
+  - DOMAIN,proactivebackend-pa.googleapis.com,Ai服务
+  - DOMAIN,generativelanguage.googleapis.com,Ai服务
+  - DOMAIN,geller-pa.googleapis.com,Ai服务
+  - DOMAIN,makertrain-pa.googleapis.com,Ai服务
+  
+  # 2. 如果你同时使用 Claude 或 OpenAI，建议也前置 (可选)
+  - DOMAIN-SUFFIX,anthropic.com,Ai服务
+  - DOMAIN-SUFFIX,claude.ai,Ai服务
+  - DOMAIN-SUFFIX,openai.com,Ai服务
+  - DOMAIN-SUFFIX,chatgpt.com,Ai服务
   # 本地网络和特殊规则
   - "RULE-SET,LocalAreaNetwork,全球直连"
   - "DOMAIN-KEYWORD,vzan,全球直连"
