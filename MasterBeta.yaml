@@ -149,7 +149,7 @@ proxy-groups:
       - 韩国节点
       - 手动切换
       - DIRECT
-    - name: TikTok
+  - name: TikTok
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png
     type: select
     proxies:
