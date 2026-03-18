@@ -341,44 +341,44 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     include-all: true
     filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
-    type: url-test
+    type: fallback
+    url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
   - name: 日本节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
     include-all: true
     filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
-    type: url-test
+    type: fallback
+    url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
   - name: 美国节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
     include-all: true
     filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
     type: url-test
+    url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
   - name: 台湾节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
     include-all: true
     filter: (?i)台|新北|彰化|TW|Taiwan
-    type: url-test
+    type: fallback
+    url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
   - name: 狮城节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
     include-all: true
     filter: (?i)新加坡|坡|狮城|SG|Singapore
-    type: url-test
+    type: fallback
+    url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
   - name: 韩国节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
     include-all: true
     filter: (?i)KR|Korea|KOR|首尔|韩|韓
-    type: url-test
+    type: fallback
+    url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
   - name: 奈飞节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
     include-all: true
@@ -595,8 +595,9 @@ rule-providers:
     type: http
 
 rules:
+  - RULE-SET,AIGC,AIGC
   # ----------------------------------------------------------------------
-  # [第二部分] 热门 AI 服务商全覆盖 (扩展部分)
+  # 热门 AI 服务商全覆盖 (扩展部分)
   # ----------------------------------------------------------------------
   # OpenAI (ChatGPT)
   - DOMAIN-SUFFIX,chatgpt.com,AIGC
@@ -616,7 +617,7 @@ rules:
   - DOMAIN-SUFFIX,bing.com,AIGC    # Copilot 需要 Bing 走代理(可选)
 
   # ----------------------------------------------------------------------
-  # [第三部分] Google Gemini 深度修复 (环境统一)
+  # Google Gemini 深度修复 (环境统一)
   # ----------------------------------------------------------------------
   # 1. AI 核心域名
   - DOMAIN-SUFFIX,gemini.google.com,AIGC
@@ -750,7 +751,6 @@ rules:
   - RULE-SET,Microsoft,微软服务
   - RULE-SET,Apple,苹果服务
   - RULE-SET,Telegram,电报消息
-  - RULE-SET,AIGC,AIGC
   - RULE-SET,Epic,游戏平台
   - RULE-SET,Origin,游戏平台
   - RULE-SET,Sony,游戏平台
