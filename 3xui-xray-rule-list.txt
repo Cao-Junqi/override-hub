@@ -1,0 +1,141 @@
+# 3x-ui / Xray 兼容路由规则文件
+# 来源：master.yaml 621-638 + AiDomain.list + TikTok.list
+# 说明：Xray rule_list 不支持 Clash 的 DOMAIN-SUFFIX/DOMAIN-KEYWORD，已转换为 domain:/full:/keyword:/geosite:/regexp: 形式。
+
+# 1. 直接从 master.yaml 621-638 源规则转换（AIGC 关键域名）
+# 使用最优先的 domain
+
+domain:chatgpt.com
+# openai 关键字补充
+keyword:openai
+domain:openai.com
+domain:oaistatic.com
+domain:oaiusercontent.com
+
+# Anthropic
+domain:claude.ai
+domain:anthropic.com
+
+# Perplexity / Grok / Copilot
+domain:perplexity.ai
+domain:grok.com
+domain:x.ai
+domain:bing.com
+
+# Google Gemini 相关
+domain:gemini.google.com
+domain:bard.google.com
+domain:aistudio.google.com
+domain:generativelanguage.googleapis.com
+domain:proactivebackend-pa.googleapis.com
+domain:googleusercontent.com
+domain:accounts.google.com
+domain:googleapis.com
+domain:googletagmanager.com
+domain:gvt1.com
+domain:clients6.google.com
+domain:clients4.google.com
+
+# 2. AiDomain.list 内容转换
+
+domain:cerebras.ai
+domain:auth0.com
+domain:client-api.arkoselabs.com
+domain:events.statsigapi.net
+domain:featuregates.org
+domain:identrust.com
+domain:intercom.io
+domain:intercomcdn.com
+domain:openai.com
+domain:openaiapi-site.azureedge.net
+domain:sentry.io
+domain:chatgpt.com
+domain:oaistatic.com
+domain:oaiusercontent.com
+domain:sora.com
+domain:a.nel.cloudflare.com
+domain:challenges.cloudflare.com
+domain:browser-intake-datadoghq.com
+domain:ab.chatgpt.com
+domain:anthropic.com
+domain:claude.ai
+domain:usefathom.com
+domain:console.anthropic.com
+domain:claude.com
+domain:claudeusercontent.com
+domain:recraft.ai
+domain:poe.com
+domain:lmsudio.ai
+domain:x.ai
+domain:grok.com
+domain:perplexity.ai
+domain:githubcopilot.com
+domain:api.githubcopilot.com
+domain:api.github.com
+domain:github.gallery.vsassets.io
+domain:github.gallerycdn.vsassets.io
+domain:applicationinsights.azure.com
+domain:edgeservices.bing.com
+domain:sydney.bing.com
+domain:bing.com
+domain:bing.net
+domain:bingapis.com
+domain:azurewebsites.net
+domain:azureedge.net
+domain:edge.microsoft.com
+domain:copilot.microsoft.com
+domain:www.bing.com
+domain:www.bingapis.com
+domain:nav-edge.smartscreen.microsoft.com
+domain:bat.bing.com
+domain:designerapp.officeapps.live.com
+domain:cdn.designerapp.osi.office.net
+domain:live.com
+domain:virtualearth.net
+domain:windows.net
+domain:onenote
+domain:msn.com
+domain:variflight.com
+domain:msftoffers.com
+domain:chinacloudapp.cn
+domain:cbsnews.com
+domain:swx.cdn.skype.com
+domain:swc.cdn.skype.com
+domain:latest-swx.cdn.skype.com
+domain:a.config.skype.com
+domain:b.config.skype.com
+domain:platform.bing.com
+domain:microsofttranslator.com
+domain:facebook.net
+domain:delve.office.com
+domain:uservoice.com
+domain:cdn.office.net
+domain:platform.twitter.com
+domain:cdn.syndication.twimg.com
+domain:spoprod-a.akamaihd.net
+domain:bingstatic.com
+domain:yahoo.co.jp
+domain:youtube.com
+domain:ytimg.com
+
+# 3. TikTok.list 内容转换
+full:p16-tiktokcdn-com.akamaized.net
+domain:byteoversea.com
+domain:ibytedtos.com
+domain:ibyteimg.com
+domain:ipstatp.com
+domain:muscdn.com
+domain:musical.ly
+domain:sgpstatp.com
+domain:snssdk.com
+domain:tik-tokapi.com
+domain:tiktok.com
+domain:tiktokcdn.com
+domain:tiktokv.com
+
+# 4. Xray 规则类型说明
+# domain:google.com  (匹配 google.com 及子域)
+# full:www.google.com  (精确匹配，不含子域)
+# keyword:google  (子串匹配，可能误伤)
+# regexp:^www\..*\.com$  (正则匹配，性能较低)
+# geosite:google  (预设/系统规则列表，推荐)
