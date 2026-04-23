@@ -5,8 +5,6 @@ dns:
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
-    - 1.1.1.1
-    - 8.8.8.8
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -341,14 +339,14 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
     include-all: true
     filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
-    type: fallback
+    type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
   - name: 日本节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
     include-all: true
     filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
-    type: fallback
+    type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
   - name: 美国节点
@@ -362,21 +360,21 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
     include-all: true
     filter: (?i)台|新北|彰化|TW|Taiwan
-    type: fallback
+    type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
   - name: 狮城节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
     include-all: true
     filter: (?i)新加坡|坡|狮城|SG|Singapore
-    type: fallback
+    type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
   - name: 韩国节点
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
     include-all: true
     filter: (?i)KR|Korea|KOR|首尔|韩|韓
-    type: fallback
+    type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
   - name: 奈飞节点
