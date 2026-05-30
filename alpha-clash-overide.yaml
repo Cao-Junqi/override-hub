@@ -647,35 +647,35 @@ rule-providers:
   Direct:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
     path: ./ruleset/direct.txt
-    behavior: classical
+    behavior: domain
     interval: 259200
     format: yaml
     type: http
   Private:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt
     path: ./ruleset/private.txt
-    behavior: classical
+    behavior: domain
     interval: 259200
     format: yaml
     type: http
   Adblock:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
     path: ./ruleset/reject.txt
-    behavior: classical
+    behavior: domain
     interval: 259200
     format: yaml
     type: http
   TelegramCIDR:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt
     path: ./ruleset/telegramcidr.txt
-    behavior: classical
+    behavior: ipcidr
     interval: 259200
     format: yaml
     type: http
   LAN_CIDR:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt
     path: ./ruleset/lancidr.txt
-    behavior: classical
+    behavior: ipcidr
     interval: 259200
     format: yaml
     type: http
