@@ -8,7 +8,7 @@ mixed-port: 7890
 allow-lan: true
 mode: rule
 log-level: info
-ipv6: false
+ipv6: auto
 enable-tcp-fast-open: true
 tcp-keep-alive-interval: 30
 tcp-keep-alive-idle: 300
@@ -626,14 +626,14 @@ rule-providers:
   ChinaDomain:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
     path: ./ruleset/ChinaDomain.list
-    behavior: domain
+    behavior: classical
     interval: 259200
     format: text
     type: http
   ChinaCompanyIp:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
     path: ./ruleset/ChinaCompanyIp.list
-    behavior: ipcidr
+    behavior: classical
     interval: 259200
     format: text
     type: http
@@ -643,6 +643,48 @@ rule-providers:
     behavior: classical
     interval: 259200
     format: text
+    type: http
+  Direct:
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
+    path: ./ruleset/direct.txt
+    behavior: classical
+    interval: 259200
+    format: yaml
+    type: http
+  Private:
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt
+    path: ./ruleset/private.txt
+    behavior: classical
+    interval: 259200
+    format: yaml
+    type: http
+  Adblock:
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
+    path: ./ruleset/reject.txt
+    behavior: classical
+    interval: 259200
+    format: yaml
+    type: http
+  TelegramCIDR:
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt
+    path: ./ruleset/telegramcidr.txt
+    behavior: classical
+    interval: 259200
+    format: yaml
+    type: http
+  LAN_CIDR:
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt
+    path: ./ruleset/lancidr.txt
+    behavior: classical
+    interval: 259200
+    format: yaml
+    type: http
+  Applications:
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt
+    path: ./ruleset/applications.txt
+    behavior: classical
+    interval: 259200
+    format: yaml
     type: http
   CN_IP:
     url: https://github.com/LM-Firefly/Rules/raw/refs/heads/master/CN-IP.list
@@ -694,9 +736,13 @@ rules:
   - IP-CIDR,223.5.5.5/32,全球直连,no-resolve
 
   # 广告拦截(可选)
-  # - RULE-SET,Adblock,REJECT
+  - RULE-SET,Adblock,REJECT
 
   # LM-Firefly 直连规则
+  - RULE-SET,Direct,全球直连
+  - RULE-SET,Private,全球直连
+  - RULE-SET,LAN_CIDR,全球直连
+  - RULE-SET,Applications,全球直连
   - RULE-SET,CN_IP,全球直连
   - RULE-SET,Domestic,全球直连
   - RULE-SET,SpeedTest,全球直连
@@ -770,6 +816,7 @@ rules:
   - RULE-SET,Netflix,奈飞视频
   - RULE-SET,Bahamut,巴哈姆特
   - RULE-SET,Telegram,电报消息
+  - RULE-SET,TelegramCIDR,电报消息
   - RULE-SET,SteamCN,全球直连
   - RULE-SET,Bing,微软Bing
   - RULE-SET,OneDrive,微软云盘
