@@ -1,5 +1,4 @@
 # Clash 覆写配置优化版（Mihomo/Clash Meta专属）
-# PROCESS-NAME内联版
 # 优化日期: 2026.05.30
 # 适用场景: 路由器、软路由、桌面端Mihomo/Clash Verge
 # 优化内容: 双节点检测、DNS优化、规则匹配效率提升、降低资源占用
@@ -9,7 +8,7 @@ mixed-port: 7890
 allow-lan: true
 mode: rule
 log-level: info
-ipv6: false
+ipv6: auto
 enable-tcp-fast-open: true
 tcp-keep-alive-interval: 30
 tcp-keep-alive-idle: 300
@@ -645,38 +644,40 @@ rule-providers:
     interval: 259200
     format: text
     type: http
+  # Loyalsoldier 规则集 → behavior: domain（支持 +.domain 简写语法）
   Direct:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
     path: ./ruleset/direct.txt
-    behavior: classical
+    behavior: domain
     interval: 259200
     format: yaml
     type: http
   Private:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt
     path: ./ruleset/private.txt
-    behavior: classical
+    behavior: domain
     interval: 259200
     format: yaml
     type: http
   Adblock:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
     path: ./ruleset/reject.txt
-    behavior: classical
+    behavior: domain
     interval: 259200
     format: yaml
     type: http
+  # Loyalsoldier CIDR 规则集 → behavior: ipcidr
   TelegramCIDR:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt
     path: ./ruleset/telegramcidr.txt
-    behavior: classical
+    behavior: ipcidr
     interval: 259200
     format: yaml
     type: http
   LAN_CIDR:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt
     path: ./ruleset/lancidr.txt
-    behavior: classical
+    behavior: ipcidr
     interval: 259200
     format: yaml
     type: http
@@ -730,7 +731,7 @@ rules:
   - IP-CIDR,119.29.29.29/32,全球直连,no-resolve
   - IP-CIDR,223.5.5.5/32,全球直连,no-resolve
 
-  # 广告拦截(可选)
+  # 广告拦截
   - RULE-SET,Adblock,REJECT
 
   # LM-Firefly 直连规则
