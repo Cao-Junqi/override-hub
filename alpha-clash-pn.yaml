@@ -9,7 +9,7 @@ mixed-port: 7890
 allow-lan: true
 mode: rule
 log-level: info
-ipv6: auto
+ipv6: false
 enable-tcp-fast-open: true
 tcp-keep-alive-interval: 30
 tcp-keep-alive-idle: 300
